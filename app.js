@@ -15,7 +15,7 @@ window.addEventListener("load", () => {
         drawing = false;
         ctx.beginPath();
     };
-    
+
     //set color
     var colorLine = document.querySelector("#choosecolor");
     colorLine.addEventListener("change", setColor);
@@ -26,8 +26,26 @@ window.addEventListener("load", () => {
         ctx.strokeStyle = colorLine.value;
     };
 
+    //set linewidth
+    var lineWidth = document.querySelector("#lineWight");
+    lineWidth.addEventListener("change", setLineWight);
+
+    function setLineWight() {
+        console.log(lineWight.value);
+        ctx.lineWidth = lineWidth.value;
+    }
+
+
+//erazer
+
+//set linetype
+
+//set cursor
+
+//clean canvas   
     
-    
+// load image to colorize
+
     function draw(e) {
         if (!drawing) return;
         ctx.lineCap = "round";
@@ -36,6 +54,7 @@ window.addEventListener("load", () => {
         ctx.beginPath();
         ctx.moveTo(e.clientX, e.clientY);
         ctx.strokeStyle = colorLine.value;
+        ctx.lineWidth = lineWidth.value;
     };
 
     canvas.addEventListener("mousedown", startDrawing);
