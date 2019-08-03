@@ -16,7 +16,18 @@ window.addEventListener("load", () => {
         ctx.beginPath();
     };
     
+    //set color
+    var colorLine = document.querySelector("#choosecolor");
+    colorLine.addEventListener("change", setColor);
 
+    function setColor() {
+        // czemu w console.log nie wywala mi odpowiedniej wartosci?
+        console.log(colorLine);
+        ctx.strokeStyle = colorLine.value;
+    };
+
+    
+    
     function draw(e) {
         if (!drawing) return;
         ctx.lineCap = "round";
@@ -24,7 +35,7 @@ window.addEventListener("load", () => {
         ctx.stroke();
         ctx.beginPath();
         ctx.moveTo(e.clientX, e.clientY);
-
+        ctx.strokeStyle = colorLine.value;
     };
 
     canvas.addEventListener("mousedown", startDrawing);
@@ -32,11 +43,3 @@ window.addEventListener("load", () => {
     canvas.addEventListener("mousemove", draw);
 
 });
-
-
-
-
-
-
-
-
