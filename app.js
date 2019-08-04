@@ -36,6 +36,27 @@ window.addEventListener("load", () => {
     }
 
 
+//continous line
+//var oneLine = document.querySelector("oneLine");
+//function drawOneLine() {
+//    
+//}
+
+
+
+// load image to colorize
+var loadImage = document.querySelector("#loadImage");
+loadImage.addEventListener("click", newImage)
+
+function newImage()
+{
+  base_image = new Image();
+//dodac randomowy obraz
+  base_image.src = 'img/img2.jpg';
+  base_image.onload = function(){
+    ctx.drawImage(base_image, 0, 0, 600, 400);
+  }
+}
 //erazer
 
 //set linetype
@@ -43,8 +64,13 @@ window.addEventListener("load", () => {
 //set cursor
 
 //clean canvas   
-    
-// load image to colorize
+
+//continous line
+//var oneLine = document.querySelector("oneLine");
+//function drawOneLine() {
+//    
+//}
+
 
     function draw(e) {
         if (!drawing) return;
