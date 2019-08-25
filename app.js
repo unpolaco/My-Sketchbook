@@ -1,6 +1,7 @@
 window.addEventListener("load", () => {
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
+    let pickedColor;
 
     canvas.height = 400;
     canvas.width = 600;
@@ -20,23 +21,27 @@ window.addEventListener("load", () => {
     //active crayon add class
 
 
-    var crayonlist = document.getElementById("crayonlist");
-
+    var crayonlist = document.querySelector(".crayonlist");
+    
     crayonlist.addEventListener("click", function (e) {
 
-        let li = e.target.closest('li'); 
+        var li = e.target.closest('li'); 
+        console.log(li);        
+        pickedColor = li.getAttribute('name');
+
         if (!li) return; 
         if (!crayonlist.contains(li)) return;
 
-        var qqq = document.querySelectorAll(".crayon");
+        var allCrayons = document.querySelectorAll(".crayon");
 
-        for(i=0; i < qqq.length; i++) {
-            console.log(qqq[i])
-           qqq[i].classList.remove("crayon_active");
+        for(i=0; i < allCrayons.length; i++) {
+            
+           allCrayons[i].classList.remove("crayon_active");
         };
         
         li.classList.add("crayon_active");
-
+        
+        
     });
 
     
@@ -49,29 +54,37 @@ window.addEventListener("load", () => {
 
     function erazeTool() {
         erazerStyle = true;
-        ctx.strokeStyle = "#f0efef";
+        ctx.strokeStyle = "#d61111";
     };
 
     // pencil
-    var pencil = document.querySelector("#pencil");
-    pencil.addEventListener("click", pencilTool);
+    var pen = document.querySelector("#pen");
+    pen.addEventListener("click", penTool);
 
-    function pencilTool() {
-        pencilStyle = true;
-        ctx.strokeStyle = "#ff0000";
+    function penTool() {
+        penStyle = true;
+        ctx.strokeStyle = "#000000";
+        //ctx.lineWidth = 1;
     };
-
-
+    
+///lineWidth
+    
+        if (penTool = true) {
+            ctx.lineWidth = 1;
+        } else {
+            ctx.lineWidth = lineWidth.value;
+        };
     //////////////////////////////////////////////////////////////////////////////////////////
     //set color
-    var colorLine = document.querySelector("#choosecolor");
-    colorLine.addEventListener("change", setColor);
-
+//    var colorLine = document.querySelector("#choosecolor");
+//    colorLine.addEventListener("change", setColor);
+    
 //    function setColor() {
 //        if (erazerStyle == true) {
-//            ctx.strokeStyle = "#fff";
+//            ctx.strokeStyle = "#c61a1a";
 //        } else if (pencilStyle == true) {
-//            ctx.strokeStyle = colorLine.value;
+//            ctx.strokeStyle = "#000000";
+//            ctx.lineWidth = 1;
 //        } else if (crayonStyle == true) {
 //            ctx.strokeStyle = "#00ff00"
 //            ctx.lineWidth = 5;
@@ -79,16 +92,16 @@ window.addEventListener("load", () => {
 //    };
 
     //set linewidth
-    var lineWidth = document.querySelector("#lineWight");
-    lineWidth.addEventListener("change", setLineWight);
+    var lineWidth = document.querySelector("#lineWidth");
+    lineWidth.addEventListener("change", setLineWidth);
 
-    function setLineWight() {
+    function setLineWidth() {
         ctx.lineWidth = lineWidth.value;
     }
 
     // load image to colorize
-    var loadImage = document.querySelector("#loadImage");
-    loadImage.addEventListener("click", newImage)
+    var loadImage = document.querySelector("#bulb");
+    loadImage.addEventListener("click", newImage);
 
     function newImage() {
         var base_image = new Image();
@@ -100,14 +113,14 @@ window.addEventListener("load", () => {
         }
     }
 
-    //set linetype
+    
 
     //save image
     //var canvas = document.getElementById("myCanvas");
     window.open(canvas.toDataURL("image/png"));
 
     //clean canvas   
-    var clean = document.querySelector("#clean");
+    var clean = document.querySelector("#trash");
     clean.addEventListener("click", resetAll);
 
     function resetAll() {
@@ -119,16 +132,18 @@ window.addEventListener("load", () => {
     function draw(e) {
         if (!drawing) return;
         ctx.lineCap = "round";
-        ctx.lineTo(e.clientX - 15, e.clientY - 15);
+        ctx.lineTo(e.clientX -150, e.clientY -110);
         ctx.stroke();
         ctx.beginPath();
-        ctx.moveTo(e.clientX - 15, e.clientY - 15);
-        //ctx.strokeStyle = "rgba (0,0,20,1)";
+        ctx.moveTo(e.clientX -150, e.clientY -110);
+        ctx.strokeStyle = pickedColor;
         //ctx.strokeStyle = colorLine.value;
-        ctx.lineWidth = lineWidth.value;
+        
         //ctx.drawImage(base_image, 0, 0, 600, 400);
 
-    }
+        
+
+    };
 
 
     canvas.addEventListener("mousedown", startDrawing);

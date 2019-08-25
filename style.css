@@ -1,40 +1,52 @@
  body {
-     font-family: Lato;
+     
      font-size: 15px;
      background-image: url(coverage/backimg2.png);
 
  }
 
+ /*
  .wrapper {
 
-
-     position: absolute;
+     display: flex; /*
+     flex-basis: 100vw;
+     border: 1px solid;
+     flex-direction: row;
+     flex-flow: row wrap;
+     
+     align-items: flex-start;
+     justify-content: space-around;
+     align-content: center;  
+     font-weight: bold;
+     text-align: center;
      background-position: right bottom, left top;
      background-repeat: no-repeat, repeat;
-
+     padding: 0;
+     margin: 0;    
+                  
  }
 
- .desk01box {
+ .title {
 
-     position: absolute;
-     left: 600px;
-     top: 100px;
+     margin-left: 300px;
+     font-size: 30px;
+     border: 1px solid;
+ }
+
+ .desk01 {
+
+     flex-direction: column;
+     margin-left: 50px;
      padding-bottom: 100px;
-
-     display: flex;
-     justify-content: space-between;
-
+     border: 1px solid;
+     
+     flex-basis: auto;
  }
 
- .desk02box {
-
-     position: absolute;
-
-     left: 100px;
-     top: 50px;
-
-
- }
+ .desk02 {
+     flex-basis: 800px;
+     
+}
 
 
  #canvas {}
@@ -46,19 +58,21 @@
  }
 
  ul {
-     display: flex;
+
      list-style: none;
-     box-shadow: 4px 4px 4px grey;
- }
+     
+     
+ } /*
 
  #rightarrow {
      height: 50px;
-}
+
+ }
 
  #erazer {
-     margin-left: 100px;
+     
      height: 130px;
-     margin-bottom: 300px;
+     
      -webkit-filter: drop-shadow(3px 3px 3px #222);
      filter: drop-shadow(3px 3px 3px #222);
  }
@@ -77,9 +91,9 @@
      transition: 0.2s;
      -webkit-filter: drop-shadow(7px 7px 7px #222);
      filter: drop-shadow(7px 7px 7px #222);
- }
+ }   */
 
-/*
+ /*
  button {
      border: 1px;
      margin: 0;
@@ -91,29 +105,188 @@
      cursor: pointer;
      font-weight: bold;
  }
-*/
+ ///////////////////////////////////////////////////////                   */
+
+
+ .wrapper {
+
+     position: absolute;  
+     font-weight: bold;
+     text-align: center;
+     background-position: right bottom, left top;
+     background-repeat: no-repeat, repeat;
+     padding: 0;
+     margin: 0;
+
+ }
+
+ .title {
+     position: absolute;
+     left: 200px;
+     top: -25px;
+     font-size: 50px;
+     font-family: 'Cabin Sketch', cursive;
+     width: 400px;
+ }
+
+ .desk01 {
+
+     
+
+
+ }
+
+ .desk02 {}
+
+
+
+
+ .dots {
+     position: absolute;
+
+     top: 100px;
+     left: 800px;
+
+     text-align: center;
+
+ }
+
+ ul {
+     list-style: none;
+
+ }
+
+
+ #rightarrow {
+     position: absolute;
+     top: 100px;
+     left: 800px;
+     height: 50px;
+
+ }
+
+ #erazer {
+     position: absolute;
+     top: 300px;
+     left: 850px;
+     height: 150px;
+
+     -webkit-filter: drop-shadow(3px 3px 3px #222);
+     filter: drop-shadow(3px 3px 3px #222);
+ }
+
+ #pen {
+     position: absolute;
+     top: 50px;
+     left: 780px;
+     -webkit-filter: drop-shadow(3px 3px 3px #222);
+     filter: drop-shadow(3px 3px 3px #222);
+     height: 400px;
+ }
+
+
+ #erazer:hover,
+ #pen:hover {
+
+     transform: scale(1.1);
+     transition: 0.2s;
+     -webkit-filter: drop-shadow(7px 7px 7px #222);
+     filter: drop-shadow(7px 7px 7px #222);
+
+ }
+
+ .erazer_active,
+ .pen_active {
+     transform: scale(1.1);
+     transition: 0.2s;
+     -webkit-filter: drop-shadow(7px 7px 7px #222);
+     filter: drop-shadow(7px 7px 7px #222);
+ }
+
+
+ #bulb {
+     position: absolute;
+     top: 0px;
+     left: -10px;
+     height: 200px;
+     
+ }
+#trash {
+    position: absolute;
+    top: 220px;
+    left: 40px;
+    height: 50px;
+    
+}
+
+ #bulb:hover, #trash:hover {
+     transform: scale(1.1);
+     transition: 0.2s;
+     -webkit-filter: drop-shadow(3px 3px 3px #222);
+     filter: drop-shadow(3px 3px 3px #222);
+ }
+
+
+
+
+
  #canvas {
-     
-     
+     position: absolute;
+     top: 100px;
+     left: 140px;
      background-color: #f0efef;
      box-shadow: 4px 4px 4px grey;
      cursor: url(http://ani.cursors-4u.net/others/oth-9/oth838.cur), auto !important;
-
-
+     z-index: 1;
  }
 
-
- .crayonlist {
+ #sketchbook {
      position: absolute;
-     top: 350px;
-     left: -170px;
-     transform: scale(0.8)
+     transform: scale(.8);
+     top: 60px;
+     left: 110px;
+     z-index: 2;
  }
 
+ #lineWidth {
+     position: absolute;
+     top: 300px;
+     left: 900px;
+ }
+
+ .desk03 {
+
+     position: absolute;
+     top: 450px;
+     left: -100px;
+     width: 1000px;
+     display: inline-block;
+
+
+     transform: scale(0.8);
+     z-index: 3;
+ }
+
+
+
+
+
+ .desk04 {
+
+     position: absolute;
+     /* top: 500px;
+     left: 600px;   
+     width: 800px;  */
+     display: inline-block;
+
+
+ }
 
 
  .crayon {
-     height: 200px;
+
+     height: 100px;
+     display: inline-block;
      transition: 0.3s;
      -webkit-filter: drop-shadow(5px 5px 5px #222);
      filter: drop-shadow(5px 5px 5px #222);
@@ -132,10 +305,9 @@
      filter: drop-shadow(7px 7px 7px #222);
  }
 
-
-#sketchbook {
-    position: absolute;
-    transform: scale(.8);
-    top: -40px;
-    left: -30px;
-}
+ #crayonbox {
+     position: absolute;
+     top: 200px;
+     left: 100px;
+     z-index: 4;
+ }

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
- <head>
+
+<head>
     <meta charset="utf-8" />
     <title>Almoust Photoshop</title>
     <link type="text/css" rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700&display=swap" rel="stylesheet">
 
 </head>
 
@@ -11,75 +13,88 @@
 
     <div class="wrapper">
 
-        <div class="desk01box">
+        <div class=title>
+            <p>My Sketchbook</p>
+        </div>
 
+        <div class="desk01">
+            <!--
             <button type="button">CHOOSE COLOR:</button>
             <input type="color" name="choosecolor" id="choosecolor" value="#000000"><br>
             -->
-            <img src="coverage/erazer.png" id="erazer">
-            <div class=linewidth>
-                <div class=dots>
-                    <span style='font-size:10px;'>&#9679;</span>
-                    <span style='font-size:20px;'>&#9679;</span>
-                    <span style='font-size:30px;'>&#9679;</span>
-                    <span style='font-size:40px;'>&#9679;</span>
-                </div>
 
-                <br>
-                <input type="range" id="lineWight" step="2" min="1" max="20" height="50"><br>LINEWIDTH
+            <div class="desk02">
+                <img src="coverage/sketchbook1.png" id="sketchbook">
+                <canvas id="canvas"></canvas>
+
 
             </div>
 
-            <img src="coverage/rightarrow.png" id="rightarrow">
+            <div class="desk02a">
 
+                <img src="coverage/erazer.png" id="erazer">
+                <div class=linewidth>
+                    <div class=dots>
+                        <span style='font-size:10px;'>&#9679;</span>
+                        <span style='font-size:20px;'>&#9679;</span>
+                        <span style='font-size:30px;'>&#9679;</span>
+                        <span style='font-size:40px;'>&#9679;</span>
+                    </div>
+
+                    <br>
+                    <input type="range" id="lineWidth" step="2" min="1" max="20" height="50">
+
+                </div>
+
+              <!--  <img src="coverage/rightarrow.png" id="rightarrow">   -->
+            </div>
 
         </div>
 
 
-        <div class="desk02box">
-            <img src="coverage/sketchbook1.png" id="sketchbook">
-    
-            <canvas id="canvas"></canvas>
+
+
+        <div class="desk03">
 
             <ul class="crayonlist">
-                <li class="crayon"><img src="coverage/k01.png"></li>
-                <li class="crayon"><img src="coverage/k02.png"></li>
-                <li class="crayon"><img src="coverage/k03.png"></li>
-                <li class="crayon"><img src="coverage/k04.png"></li>
-                <li class="crayon"><img src="coverage/k05.png"></li>
-                <li class="crayon"><img src="coverage/k06.png"></li>
-                <li class="crayon"><img src="coverage/k07.png"></li>
-                <li class="crayon"><img src="coverage/k08.png"></li>
-                <li class="crayon"><img src="coverage/k09.png"></li>
-                <li class="crayon"><img src="coverage/k10.png"></li>
-                <li class="crayon"><img src="coverage/k11.png"></li>
-                <li class="crayon"><img src="coverage/k12.png"></li>
-                <li class="crayon"><img src="coverage/k13.png"></li>
-                <li class="crayon"><img src="coverage/k14.png"></li>
-                <li class="crayon"><img src="coverage/k15.png"></li>
-                <li class="crayon"><img src="coverage/k16.png"></li>
-                <li class="crayon"><img src="coverage/k17.png"></li>
-                <li class="crayon"><img src="coverage/k18.png"></li>
-                <li class="crayon"><img src="coverage/k19.png"></li>
-                <li class="crayon"><img src="coverage/k20.png"></li>
-                <li class="crayon"><img src="coverage/k21.png"></li>
+                <li class="crayon" name="#fee902"><img src="coverage/k01.png"></li>
+                <li class="crayon" name="#fe9d00"><img src="coverage/k02.png"></li>
+                <li class="crayon" name="#fc5b24"><img src="coverage/k03.png"></li>
+                <li class="crayon" name="#e3380d"><img src="coverage/k04.png"></li>
+                <li class="crayon" name="#fc5161"><img src="coverage/k05.png"></li>
+                <li class="crayon" name="#eb96c0"><img src="coverage/k06.png"></li>
+                <li class="crayon" name="#ff709b"><img src="coverage/k07.png"></li>
+                <li class="crayon" name="#e81691"><img src="coverage/k08.png"></li>
+                <li class="crayon" name="#382f59"><img src="coverage/k09.png"></li>
+                <li class="crayon" name="#232d8c"><img src="coverage/k10.png"></li>
+                <li class="crayon" name="#1a234e"><img src="coverage/k11.png"></li>
+                <li class="crayon" name="#0084c4"><img src="coverage/k12.png"></li>
+                <li class="crayon" name="#959aa2"><img src="coverage/k13.png"></li>
+                <li class="crayon" name="#68d7c7"><img src="coverage/k14.png"></li>
+                <li class="crayon" name="#2b8f37"><img src="coverage/k15.png"></li>
+                <li class="crayon" name="#4f6851"><img src="coverage/k16.png"></li>
+                <li class="crayon" name="#1d6a57"><img src="coverage/k17.png"></li>
+                <li class="crayon" name="#cc9e14"><img src="coverage/k18.png"></li>
+                <li class="crayon" name="#893d4e"><img src="coverage/k19.png"></li>
+                <li class="crayon" name="#6f4a41"><img src="coverage/k20.png"></li>
+                <li class="crayon" name="#a55f3d"><img src="coverage/k21.png"></li>
             </ul>
-            <!--
-    <img src="coverage/crayonbox.png" id="crayonbox">
--->
+
+            <img src="coverage/crayonbox.png" id="crayonbox">
+             
+
         </div>
-
-
 
 
         <br>
-        <!--   <button type="button" id="pencil">pencil</button> <br>
-    <button type="button" id="erazer">erazer</button> <br>
-    <button type="button" id="loadImage">load image</button> <br>
-    <button type="button" id="clean">clean all</button>
-    <button type="button" id="save">save image</button>
--->
+        <div class="desk04">
+            <img src="coverage/pen.png" id="pen">
+            <img src="coverage/bulb.png" id="bulb">
+            <img src="coverage/trash.png" id="trash">
 
+            
+
+        </div>
 
 
 
@@ -92,5 +107,3 @@
 
     <script src="app.js"></script>
 </body></html>
-
-
