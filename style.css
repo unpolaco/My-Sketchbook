@@ -1,54 +1,141 @@
  body {
-    font-family: Lato;
-    font-size: 15px;
-    background-color: #d9d9d9;
+     font-family: Lato;
+     font-size: 15px;
+     background-image: url(coverage/backimg2.png);
+
+ }
+
+ .wrapper {
+
+
+     position: absolute;
+     background-position: right bottom, left top;
+     background-repeat: no-repeat, repeat;
+
+ }
+
+ .desk01box {
+
+     position: absolute;
+     left: 600px;
+     top: 100px;
+     padding-bottom: 100px;
+
+     display: flex;
+     justify-content: space-between;
+
+ }
+
+ .desk02box {
+
+     position: absolute;
+
+     left: 100px;
+     top: 50px;
+
+
+ }
+
+
+ #canvas {}
+
+ .dots {
+
+     text-align: center;
+
+ }
+
+ ul {
+     display: flex;
+     list-style: none;
+     box-shadow: 4px 4px 4px grey;
+ }
+
+ #rightarrow {
+     height: 50px;
 }
 
-#canvas {
-    display: flex;
-    border: 5px solid #555;
-    cursor: crosshair; /*url(http://ani.cursors-4u.net/others/oth-9/oth838.cur), auto !important; */
+ #erazer {
+     margin-left: 100px;
+     height: 130px;
+     margin-bottom: 300px;
+     -webkit-filter: drop-shadow(3px 3px 3px #222);
+     filter: drop-shadow(3px 3px 3px #222);
+ }
+
+ #erazer:hover {
+
+     transform: scale(1.1);
+     transition: 0.2s;
+     -webkit-filter: drop-shadow(7px 7px 7px #222);
+     filter: drop-shadow(7px 7px 7px #222);
+
+ }
+
+ .erazer_active {
+     transform: scale(1.1);
+     transition: 0.2s;
+     -webkit-filter: drop-shadow(7px 7px 7px #222);
+     filter: drop-shadow(7px 7px 7px #222);
+ }
+
+/*
+ button {
+     border: 1px;
+     margin: 0;
+     color: #555;
+     background: none;
+     font-family: Lato;
+
+     text-transform: uppercase;
+     cursor: pointer;
+     font-weight: bold;
+ }
+*/
+ #canvas {
+     
+     
+     background-color: #f0efef;
+     box-shadow: 4px 4px 4px grey;
+     cursor: url(http://ani.cursors-4u.net/others/oth-9/oth838.cur), auto !important;
+
+
+ }
+
+
+ .crayonlist {
+     position: absolute;
+     top: 350px;
+     left: -170px;
+     transform: scale(0.8)
+ }
+
+
+
+ .crayon {
+     height: 200px;
+     transition: 0.3s;
+     -webkit-filter: drop-shadow(5px 5px 5px #222);
+     filter: drop-shadow(5px 5px 5px #222);
+ }
+
+ .crayon:hover {
+     transform: translateY(-30px);
+     -webkit-filter: drop-shadow(7px 7px 7px #222);
+     filter: drop-shadow(7px 7px 7px #222);
+
+ }
+
+ .crayon_active {
+     transform: translateY(-30px);
+     -webkit-filter: drop-shadow(7px 7px 7px #222);
+     filter: drop-shadow(7px 7px 7px #222);
+ }
+
+
+#sketchbook {
+    position: absolute;
+    transform: scale(.8);
+    top: -40px;
+    left: -30px;
 }
-#colorpicker {
-    display: flex;
-    flex: 1;
-    flex-direction:row;
-    color: #555;
-    align-items: flex-start;
-    height: 100px;
-    justify-content: flex-start;
-    font-weight: bold;
-    margin: 0;
-    padding: 15px;
-    line-height: 22px;
-    width: 800px;
-}
-
-
-.dateDiv {
-    display: flex;
-    flex: auto;
-    align-items: flex-start;
-    height: 30px;
-    justify-content: flex-start;
-    font-size: 15px;
-    color: #868686;
-}
-
-button {
-
-    border: 1px;
-    margin: 0;
-    color: #555;
-    background: none;
-    font-family: Lato;
-
-    text-transform: uppercase;
-    cursor: pointer;
-    font-weight: bold;
-
-}
-
-
-
-.task-list {}

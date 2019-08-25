@@ -9,14 +9,87 @@
 
 <body>
 
+    <div class="wrapper">
+
+        <div class="desk01box">
+
+            <button type="button">CHOOSE COLOR:</button>
+            <input type="color" name="choosecolor" id="choosecolor" value="#000000"><br>
+            -->
+            <img src="coverage/erazer.png" id="erazer">
+            <div class=linewidth>
+                <div class=dots>
+                    <span style='font-size:10px;'>&#9679;</span>
+                    <span style='font-size:20px;'>&#9679;</span>
+                    <span style='font-size:30px;'>&#9679;</span>
+                    <span style='font-size:40px;'>&#9679;</span>
+                </div>
+
+                <br>
+                <input type="range" id="lineWight" step="2" min="1" max="20" height="50"><br>LINEWIDTH
+
+            </div>
+
+            <img src="coverage/rightarrow.png" id="rightarrow">
 
 
-    <canvas id="canvas"></canvas>
-    <button type="button">CHOOSE COLOR:</button>
-    <input type="color" name="choosecolor" id="choosecolor" value="#000000"><br>
-    <input type="range" id="lineWight" step="2" min="1" max="20">LINEWIDTH<br>
-    <input type="checkbox" name="oneLine" id="oneLine" value="" onchange="drawOneLine(this)">DRAW ONE LINE <br>
-    <button type="button" id="loadImage">load image</button>
+        </div>
+
+
+        <div class="desk02box">
+            <img src="coverage/sketchbook1.png" id="sketchbook">
+    
+            <canvas id="canvas"></canvas>
+
+            <ul class="crayonlist">
+                <li class="crayon"><img src="coverage/k01.png"></li>
+                <li class="crayon"><img src="coverage/k02.png"></li>
+                <li class="crayon"><img src="coverage/k03.png"></li>
+                <li class="crayon"><img src="coverage/k04.png"></li>
+                <li class="crayon"><img src="coverage/k05.png"></li>
+                <li class="crayon"><img src="coverage/k06.png"></li>
+                <li class="crayon"><img src="coverage/k07.png"></li>
+                <li class="crayon"><img src="coverage/k08.png"></li>
+                <li class="crayon"><img src="coverage/k09.png"></li>
+                <li class="crayon"><img src="coverage/k10.png"></li>
+                <li class="crayon"><img src="coverage/k11.png"></li>
+                <li class="crayon"><img src="coverage/k12.png"></li>
+                <li class="crayon"><img src="coverage/k13.png"></li>
+                <li class="crayon"><img src="coverage/k14.png"></li>
+                <li class="crayon"><img src="coverage/k15.png"></li>
+                <li class="crayon"><img src="coverage/k16.png"></li>
+                <li class="crayon"><img src="coverage/k17.png"></li>
+                <li class="crayon"><img src="coverage/k18.png"></li>
+                <li class="crayon"><img src="coverage/k19.png"></li>
+                <li class="crayon"><img src="coverage/k20.png"></li>
+                <li class="crayon"><img src="coverage/k21.png"></li>
+            </ul>
+            <!--
+    <img src="coverage/crayonbox.png" id="crayonbox">
+-->
+        </div>
+
+
+
+
+        <br>
+        <!--   <button type="button" id="pencil">pencil</button> <br>
+    <button type="button" id="erazer">erazer</button> <br>
+    <button type="button" id="loadImage">load image</button> <br>
+    <button type="button" id="clean">clean all</button>
+    <button type="button" id="save">save image</button>
+-->
+
+
+
+
+
+
+
+    </div>
+
+
+
     <script src="app.js"></script>
 </body></html>
 
