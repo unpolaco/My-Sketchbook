@@ -1,8 +1,8 @@
  body {
      
      font-size: 15px;
-     background-image: url(coverage/backimg2.png);
-
+     background-image: url(coverage/backimg2.png); 
+    height: 100vh;
  }
 
  /*
@@ -236,7 +236,7 @@
      left: 140px;
      background-color: #f0efef;
      box-shadow: 4px 4px 4px grey;
-     cursor: url(http://ani.cursors-4u.net/others/oth-9/oth838.cur), auto !important;
+     cursor: url(/coverage/cursor-crayon.png), auto;
      z-index: 1;
  }
 
@@ -281,6 +281,13 @@
 
 
  }
+
+#btn-download {
+    position: absolute;
+     top: 150px;
+     left: 1000px;
+    
+}
 
 
  .crayon {

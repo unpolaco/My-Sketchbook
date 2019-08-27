@@ -1,16 +1,52 @@
 window.addEventListener("load", () => {
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
-    let pickedColor;
+    var pickedColor;
 
     canvas.height = 400;
     canvas.width = 600;
 
     var drawing = false;
     var erazerStyle = false;
+    var crayonStyle = false;
+    var penStyle = false;
+
+    
+
+    
+    
+    
+    
+    function setStyle() {
+        console.log('drawing', drawing)
+        console.log('erazerStyle', erazerStyle)
+        console.log('crayonStyle', crayonStyle)
+        console.log('penStyle', penStyle)
+
+
+        if (erazerStyle) {
+            ctx.strokeStyle = "#f0efef";
+            ctx.lineWidth = lineWidth.value;
+        } else if (crayonStyle) {
+
+            ctx.strokeStyle = pickedColor;
+            ctx.lineWidth = lineWidth.value;
+
+        } else if (penStyle) {
+
+            ctx.strokeStyle = "#000000";
+            ctx.lineWidth = 1;
+        } else {
+            ctx.strokeStyle = "#ffff03";
+            ctx.lineWidth = 5;
+        }
+    };
+
 
     function startDrawing() {
+        setStyle();
         drawing = true;
+
     };
 
     function stopDrawing() {
@@ -20,33 +56,36 @@ window.addEventListener("load", () => {
 
     //active crayon add class
 
-
     var crayonlist = document.querySelector(".crayonlist");
-    
-    crayonlist.addEventListener("click", function (e) {
 
-        var li = e.target.closest('li'); 
-        console.log(li);        
+    crayonlist.addEventListener("click", function (e) {
+        crayonStyle = true;
+        erazerStyle = false;
+        penStyle = false;
+        canvas.style.cursor = "url(/coverage/cursor-crayon.png), auto";
+        console.log("crayontool");
+        var li = e.target.closest('li');
+        //console.log(li);
         pickedColor = li.getAttribute('name');
 
-        if (!li) return; 
+        if (!li) return;
         if (!crayonlist.contains(li)) return;
 
         var allCrayons = document.querySelectorAll(".crayon");
 
-        for(i=0; i < allCrayons.length; i++) {
-            
-           allCrayons[i].classList.remove("crayon_active");
+        for (i = 0; i < allCrayons.length; i++) {
+
+            allCrayons[i].classList.remove("crayon_active");
         };
-        
+
         li.classList.add("crayon_active");
-        
-        
+
+
     });
 
-    
-    
-    
+
+
+
 
     //    erazer
     var erazer = document.querySelector("#erazer");
@@ -54,7 +93,10 @@ window.addEventListener("load", () => {
 
     function erazeTool() {
         erazerStyle = true;
-        ctx.strokeStyle = "#d61111";
+        crayonStyle = false;
+        penStyle = false;
+        canvas.style.cursor = "url(/coverage/cursor-erazer.png), auto";
+        //console.log("erazetool");
     };
 
     // pencil
@@ -63,33 +105,13 @@ window.addEventListener("load", () => {
 
     function penTool() {
         penStyle = true;
-        ctx.strokeStyle = "#000000";
-        //ctx.lineWidth = 1;
+        erazerStyle = false;
+        crayonStyle = false;
+        canvas.style.cursor = "url(/coverage/cursor-pen.png ), auto";
+        console.log("pentool");
     };
-    
-///lineWidth
-    
-        if (penTool = true) {
-            ctx.lineWidth = 1;
-        } else {
-            ctx.lineWidth = lineWidth.value;
-        };
-    //////////////////////////////////////////////////////////////////////////////////////////
-    //set color
-//    var colorLine = document.querySelector("#choosecolor");
-//    colorLine.addEventListener("change", setColor);
-    
-//    function setColor() {
-//        if (erazerStyle == true) {
-//            ctx.strokeStyle = "#c61a1a";
-//        } else if (pencilStyle == true) {
-//            ctx.strokeStyle = "#000000";
-//            ctx.lineWidth = 1;
-//        } else if (crayonStyle == true) {
-//            ctx.strokeStyle = "#00ff00"
-//            ctx.lineWidth = 5;
-//        }
-//    };
+
+
 
     //set linewidth
     var lineWidth = document.querySelector("#lineWidth");
@@ -113,9 +135,16 @@ window.addEventListener("load", () => {
         }
     }
 
-    
+
 
     //save image
+        var button = document.getElementById('btn-download');
+        button.addEventListener('click', function (e) {
+            var dataURL = canvas.toDataURL('image/png');
+            button.href = dataURL;
+            
+        });
+
     //var canvas = document.getElementById("myCanvas");
     window.open(canvas.toDataURL("image/png"));
 
@@ -131,17 +160,12 @@ window.addEventListener("load", () => {
 
     function draw(e) {
         if (!drawing) return;
+
         ctx.lineCap = "round";
-        ctx.lineTo(e.clientX -150, e.clientY -110);
+        ctx.lineTo(e.clientX - 155, e.clientY - 70);
         ctx.stroke();
         ctx.beginPath();
-        ctx.moveTo(e.clientX -150, e.clientY -110);
-        ctx.strokeStyle = pickedColor;
-        //ctx.strokeStyle = colorLine.value;
-        
-        //ctx.drawImage(base_image, 0, 0, 600, 400);
-
-        
+        ctx.moveTo(e.clientX - 155, e.clientY - 70);
 
     };
 
