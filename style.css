@@ -1,66 +1,60 @@
  body {
-
-
      background: url(coverage/background02.png) top left;
-     /*    background-attachment: fixed;*/
-     /*     height: 20vh;*/
      height: 100vh;
-     background-size:auto;
-     display: flex;
-     flex-basis: 100vw;
+     background-size: auto;
      background-repeat: no-repeat;
      text-align: center;
      margin: 0;
      padding: 0;
+     box-sizing: border-box;
+     min-width: 1000px;
  }
 
  .container00 {
      display: flex;
-     /*     border: solid 1px;*/
-
-
  }
 
 
  .container01 {
-     width: 150px;
-/*     border: solid 1px;*/
+     width: 180px;
  }
 
- .container02 {
+ .container_sketchbook {
+     position: relative;
      display: flex;
      flex-direction: column;
      align-items: center;
-/*     border: solid 5px;*/
      width: 600px;
-     height: 550px;
+     height: 520px;
      justify-content: flex-end;
  }
 
- .container03 {
+ .container_drawing_kit {
      display: flex;
-     align-items: center;
+     align-items: flex-end;
      justify-content: space-around;
-/*     border: solid red 5px;*/
      margin-left: 30px;
-     width: 200px;
-
+     width: 250px;
+     height: 90vh;
  }
 
 
 
 
- .circle {
+ .dots > * {
      background: #414141;
      border-radius: 50%;
      display: flex;
  }
 
- .circle:hover,
- .circle_active {
+ .dots > *:hover {
      background: #000000;
  }
 
+ #dot0 {
+     width: 5px;
+     height: 5px;
+ }
 
  #dot1 {
      width: 10px;
@@ -95,11 +89,13 @@
 
 
  .title {
+     position: absolute;
+     top: -40px;
      height: 100px;
      font-size: 50px;
      font-family: 'Cabin Sketch', cursive;
      width: 400px;
-     justify-content:flex-start;
+     justify-content: flex-start;
  }
 
  .rect {
@@ -109,38 +105,37 @@
      width: 500px;
      margin-top: 20px;
      justify-content: flex-end;
-     margin-right: 100px;
+     margin-right: -30px;
      align-items: flex-end;
 
  }
 
  .rect > * {
-     width: 60px;
-     height: 30px;
-     box-shadow: 2px 0px 5px grey;
-
+     width: 90px;
+     height: 20px;
+     box-shadow: -2px 0px 5px grey;
+margin-right: 40px;
  }
 
- #clean_image {
-     margin-right: 40px;
+ #clean_image {    
      background: #b1ff00;
  }
 
  #load_image {
-     margin-right: 40px;
      background: yellow;
  }
 
  #save_image {
      text-decoration: none;
-     text-decoration-color: black;
+     color: black;
      background: orange;
  }
 
  .rect > *:hover {
-     height: 40px;
-     box-shadow: 3px 0px 7px grey;
-     cursor: pointer;
+     height: 30px;
+     box-shadow: -3px 0px 7px grey;
+     cursor: default;
+     transition: 0.2s;
  }
 
 
@@ -152,15 +147,15 @@
      height: 200px;
      width: 60px;
      align-items: center;
-     justify-content: space-between;
-
+     justify-content: space-around;
+     border: solid #3b3b3b 4px;
+     box-shadow: -3px 3px 3px #222;
+     margin-bottom: 75px;
 
  }
 
  ul {
      list-style: none;
-     margin-bottom: -36px;
-
      z-index: 2;
  }
 
@@ -169,16 +164,16 @@
  #erazer {
 
      height: 150px;
-     align-self: center;
-
-     -webkit-filter: drop-shadow(3px 3px 3px #222);
-     filter: drop-shadow(3px 3px 3px #222);
+     align-self: flex-end;
+     margin-bottom: 75px;
+     -webkit-filter: drop-shadow(-3px 3px 3px #222);
+     filter: drop-shadow(-3px 3px 3px #222);
  }
 
  #pen {
 
-     -webkit-filter: drop-shadow(3px 3px 3px #222);
-     filter: drop-shadow(3px 3px 3px #222);
+     -webkit-filter: drop-shadow(-3px 3px 3px #222);
+     filter: drop-shadow(-3px 3px 3px #222);
      height: 400px;
  }
 
@@ -188,8 +183,8 @@
 
      transform: scale(1.1);
      transition: 0.2s;
-     -webkit-filter: drop-shadow(7px 7px 7px #222);
-     filter: drop-shadow(7px 7px 7px #222);
+     -webkit-filter: drop-shadow(-7px 7px 7px #222);
+     filter: drop-shadow(-7px 7px 7px #222);
 
  }
 
@@ -197,54 +192,27 @@
  .pen_active {
      transform: scale(1.1);
      transition: 0.2s;
-     -webkit-filter: drop-shadow(7px 7px 7px #222);
-     filter: drop-shadow(7px 7px 7px #222);
+     -webkit-filter: drop-shadow(-7px 7px 7px #222);
+     filter: drop-shadow(-7px 7px 7px #222);
  }
-
-
-
- #bulb {
-     height: 200px;
- }
-
-
-
- #trash {
-     height: 50px;
- }
-
-
- #bulb:hover,
- #trash:hover {
-     transform: scale(1.1);
-     transition: 0.2s;
-     -webkit-filter: drop-shadow(3px 3px 3px #222);
-     filter: drop-shadow(3px 3px 3px #222);
- }
-
-
-
-
 
  #canvas {
      background-color: #f0efef;
-     box-shadow: 4px 4px 4px grey;
+     box-shadow: -4px 4px 4px grey;
      cursor: url(/coverage/cursor-crayon.png), auto;
  }
 
- #sketchbook {
+ #spiral {
+     position: absolute;
+     top: 75px;
+     left: -32px;
      transform: scale(.8);
  }
 
- #lineWidth {
-
- }
-
  .crayons {
-     position: absolute;
-     bottom: 0;
-/*     border: solid 3px;*/
-     clip: rect(-160px,800px,130px,0px);
+     position: fixed;
+     bottom: -56px;
+     left: 80px;
  }
 
 
@@ -252,31 +220,25 @@
  .crayon {
      display: inline-block;
      transition: 0.3s;
-     -webkit-filter: drop-shadow(5px 5px 5px #222);
-     filter: drop-shadow(5px 5px 5px #222);
+     -webkit-filter: drop-shadow(-5px 5px 5px #222);
+     filter: drop-shadow(-5px 5px 5px #222);
  }
 
  .crayon:hover {
      transform: translateY(-30px);
-     -webkit-filter: drop-shadow(7px 7px 7px #222);
-     filter: drop-shadow(7px 7px 7px #222);
+     -webkit-filter: drop-shadow(-7px 7px 7px #222);
+     filter: drop-shadow(-7px 7px 7px #222);
 
  }
 
  .crayon_active {
      transform: translateY(-30px);
-     -webkit-filter: drop-shadow(7px 7px 7px #222);
-     filter: drop-shadow(7px 7px 7px #222);
+     -webkit-filter: drop-shadow(-7px 7px 7px #222);
+     filter: drop-shadow(-7px 7px 7px #222);
  }
 
-/*
- .crayonbox {
-     margin-bottom: -280px;
-     z-index: 5;
- }
-*/
 
+::selection {
+    background-color: transparent;
+}
 
-
-
- 

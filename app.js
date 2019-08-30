@@ -42,9 +42,7 @@ window.addEventListener("load", () => {
     };
 
     //active crayon add class
-
     var crayonlist = document.querySelector(".crayonlist");
-
     crayonlist.addEventListener("click", function (e) {
         crayonStyle = true;
         erazerStyle = false;
@@ -53,25 +51,14 @@ window.addEventListener("load", () => {
         console.log("crayontool");
         var li = e.target.closest('li');
         pickedColor = li.getAttribute('name');
-
         if (!li) return;
         if (!crayonlist.contains(li)) return;
-
         var allCrayons = document.querySelectorAll(".crayon");
-
         for (i = 0; i < allCrayons.length; i++) {
-
             allCrayons[i].classList.remove("crayon_active");
         };
-
         li.classList.add("crayon_active");
-
-
     });
-
-
-
-
 
     //    erazer
     var erazer = document.querySelector("#erazer");
@@ -95,34 +82,10 @@ window.addEventListener("load", () => {
         canvas.style.cursor = "url(/coverage/cursor-pen.png ), auto";
     };
 
-
-
-    //set linewidth
-    //    var lineWidth = document.querySelector("#lineWidth");
-    //    lineWidth.addEventListener("change", setLineWidth);
-
-    //    function setLineWidth() {
-    //        ctx.lineWidth = lineWidth.value;
-    //    };
-
-    
-    
-    
-    /////////////////////
-    
-    var dots = document.querySelector(".circle");
+    var dots = document.querySelector(".dots");
     dots.addEventListener("click", function (e) {
         setLineWidth = e.target.className;
-
-        console.log(setLineWidth.className);
-
     });
-
-///////////////////
-
-    //        ctx.lineWidth = lineWidth.value;
-    //    };
-    //    
 
     // load image to colorize
     var loadImage = document.querySelector("#load_image");
@@ -131,10 +94,12 @@ window.addEventListener("load", () => {
     function newImage() {
         var base_image = new Image();
         var randomImage = Math.floor(Math.random() * 9) + 1;
+
         base_image.src = 'img/img' + randomImage + '.png';
         base_image.onload = function () {
             ctx.clearRect(0, 0, 600, 400);
             ctx.drawImage(base_image, 0, 0, 600, 400);
+//            ctx.globalAlpha = 1;
         }
     }
 
@@ -155,16 +120,31 @@ window.addEventListener("load", () => {
         ctx.clearRect(0, 0, 600, 400);
     };
 
-
+function getMousePos(canvas, e) {
+    var rect = canvas.getBoundingClientRect();
+    return {
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top
+    };
+}
 
     function draw(e) {
         if (!drawing) return;
-
+        //        var mouseX = e.pageX - this.offsetLeft;
+        //        var mouseY = e.pageY - this.offsetTop;
+var pos =getMousePos(canvas, e);
+        
         ctx.lineCap = "round";
-        ctx.lineTo(e.clientX - 155, e.clientY - 70);
+        ctx.lineTo(pos.x, pos.y + 25);
+        //        ctx.lineTo(mouseX, mouseY + 23);
+
         ctx.stroke();
         ctx.beginPath();
-        ctx.moveTo(e.clientX - 155, e.clientY - 70);
+        ctx.moveTo(pos.x, pos.y + 25);
+        //        ctx.moveTo(mouseX, mouseY + 23);
+
+
+
 
     };
 
