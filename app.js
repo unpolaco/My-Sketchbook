@@ -2,6 +2,7 @@ window.addEventListener("load", () => {
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
     var pickedColor;
+    var setLineWidth;
 
     canvas.height = 400;
     canvas.width = 600;
@@ -11,29 +12,16 @@ window.addEventListener("load", () => {
     var crayonStyle = false;
     var penStyle = false;
 
-    
 
-    
-    
-    
-    
+
     function setStyle() {
-        console.log('drawing', drawing)
-        console.log('erazerStyle', erazerStyle)
-        console.log('crayonStyle', crayonStyle)
-        console.log('penStyle', penStyle)
-
-
         if (erazerStyle) {
             ctx.strokeStyle = "#f0efef";
-            ctx.lineWidth = lineWidth.value;
+            ctx.lineWidth = setLineWidth;
         } else if (crayonStyle) {
-
             ctx.strokeStyle = pickedColor;
-            ctx.lineWidth = lineWidth.value;
-
+            ctx.lineWidth = setLineWidth;
         } else if (penStyle) {
-
             ctx.strokeStyle = "#000000";
             ctx.lineWidth = 1;
         } else {
@@ -46,7 +34,6 @@ window.addEventListener("load", () => {
     function startDrawing() {
         setStyle();
         drawing = true;
-
     };
 
     function stopDrawing() {
@@ -65,7 +52,6 @@ window.addEventListener("load", () => {
         canvas.style.cursor = "url(/coverage/cursor-crayon.png), auto";
         console.log("crayontool");
         var li = e.target.closest('li');
-        //console.log(li);
         pickedColor = li.getAttribute('name');
 
         if (!li) return;
@@ -96,7 +82,6 @@ window.addEventListener("load", () => {
         crayonStyle = false;
         penStyle = false;
         canvas.style.cursor = "url(/coverage/cursor-erazer.png), auto";
-        //console.log("erazetool");
     };
 
     // pencil
@@ -108,26 +93,44 @@ window.addEventListener("load", () => {
         erazerStyle = false;
         crayonStyle = false;
         canvas.style.cursor = "url(/coverage/cursor-pen.png ), auto";
-        console.log("pentool");
     };
 
 
 
     //set linewidth
-    var lineWidth = document.querySelector("#lineWidth");
-    lineWidth.addEventListener("change", setLineWidth);
+    //    var lineWidth = document.querySelector("#lineWidth");
+    //    lineWidth.addEventListener("change", setLineWidth);
 
-    function setLineWidth() {
-        ctx.lineWidth = lineWidth.value;
-    }
+    //    function setLineWidth() {
+    //        ctx.lineWidth = lineWidth.value;
+    //    };
+
+    
+    
+    
+    /////////////////////
+    
+    var dots = document.querySelector(".circle");
+    dots.addEventListener("click", function (e) {
+        setLineWidth = e.target.className;
+
+        console.log(setLineWidth.className);
+
+    });
+
+///////////////////
+
+    //        ctx.lineWidth = lineWidth.value;
+    //    };
+    //    
 
     // load image to colorize
-    var loadImage = document.querySelector("#bulb");
+    var loadImage = document.querySelector("#load_image");
     loadImage.addEventListener("click", newImage);
 
     function newImage() {
         var base_image = new Image();
-        var randomImage = Math.floor(Math.random() * 3) + 1;
+        var randomImage = Math.floor(Math.random() * 9) + 1;
         base_image.src = 'img/img' + randomImage + '.png';
         base_image.onload = function () {
             ctx.clearRect(0, 0, 600, 400);
@@ -138,18 +141,14 @@ window.addEventListener("load", () => {
 
 
     //save image
-        var button = document.getElementById('btn-download');
-        button.addEventListener('click', function (e) {
-            var dataURL = canvas.toDataURL('image/png');
-            button.href = dataURL;
-            
-        });
-
-    //var canvas = document.getElementById("myCanvas");
-    window.open(canvas.toDataURL("image/png"));
+    var button = document.getElementById('save_image');
+    button.addEventListener('click', function (e) {
+        var dataURL = canvas.toDataURL('image/png');
+        button.href = dataURL;
+    });
 
     //clean canvas   
-    var clean = document.querySelector("#trash");
+    var clean = document.querySelector("#clean_image");
     clean.addEventListener("click", resetAll);
 
     function resetAll() {

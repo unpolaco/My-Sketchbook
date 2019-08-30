@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Almoust Photoshop</title>
+    <title>My Sketchbook</title>
     <link type="text/css" rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700&display=swap" rel="stylesheet">
 
@@ -11,50 +11,83 @@
 
 <body>
 
-    <div class="wrapper">
+    <div class="container00">
 
-        <div class=title>
-            <p>My Sketchbook</p>
+
+
+        <div class="container01">
+
         </div>
 
-        <div class="desk01">
-            <!--
-            <button type="button">CHOOSE COLOR:</button>
-            <input type="color" name="choosecolor" id="choosecolor" value="#000000"><br>
-            -->
-
-            <div class="desk02">
-                <img src="coverage/sketchbook1.png" id="sketchbook">
-                <canvas id="canvas"></canvas>
-
-
+        <div class="container02">
+            <div class=title>
+                <p>My Sketchbook</p>
             </div>
+            <div class="rect">
+                <div id="clean_image">CLEAN IMAGE</div>
+                <div id="load_image">GET PICTURE</div>
+                <a href="#" class="button" id="save_image" download="my-file-name.png">SAVE IMAGE</a>
+            </div>
+            <canvas id="canvas"></canvas>
+        </div>
 
-            <div class="desk02a">
+        <div class="container03">
 
-                <img src="coverage/erazer.png" id="erazer">
-                <div class=linewidth>
-                    <div class=dots>
-                        <span style='font-size:10px;'>&#9679;</span>
-                        <span style='font-size:20px;'>&#9679;</span>
-                        <span style='font-size:30px;'>&#9679;</span>
-                        <span style='font-size:40px;'>&#9679;</span>
-                    </div>
+            <img src="coverage/rubber1.png" id="erazer">
+            <div class=linewidth>
+                <div class=dots>
+                    <!--
+                        <span style='font-size:10px;' class="10">&#9679;</span>
+                        <span style='font-size:20px;' class="20">&#9679;</span>
+                        <span style='font-size:30px;' class="30">&#9679;</span>
+                        <span style='font-size:40px;' class="40">&#9679;</span>
+-->
 
-                    <br>
-                    <input type="range" id="lineWidth" step="2" min="1" max="20" height="50">
+                    <!--
+                    <svg height="50" width="150">
+                        <circle cx="100" cy="25" r="5" stroke="black" id="gdg" class="10" /></svg>
+                    <svg height="50" width="150">
+                        <circle cx="100" cy="25" r="7" stroke="black" name="dots" class="14" /></svg>
+                    <svg height="50" width="150">
+                        <circle cx="100" cy="25" r="9" stroke="black" name="dots" class="18" /></svg>
+                    <svg height="50" width="150">
+                        <circle cx="100" cy="25" r="11" stroke="black" name="dots" class="22" /></svg>
+                    <svg height="50" width="150">
+                        <circle cx="100" cy="25" r="15" stroke="black" class="30" /></svg>
+                    <svg height="50" width="150">
+                        <circle cx="100" cy="25" r="25" stroke="black" id="gdg" class="50" /></svg>
+-->
 
+                    <div class="circle" id="dot1"></div>
+                    <div class="circle" id="dot2"></div>
+                    <div class="circle" id="dot3"></div>
+                    <div class="circle" id="dot4"></div>
+                    <div class="circle" id="dot5"></div>
+                    <div class="circle" id="dot6"></div>
                 </div>
 
-              <!--  <img src="coverage/rightarrow.png" id="rightarrow">   -->
+
+
+
+
             </div>
+
+            <img src="coverage/pen.png" id="pen">
+            <!--
+            <img src="coverage/bulb.png" id="bulb">
+            <img src="coverage/trash.png" id="trash">
+-->
+
 
         </div>
 
 
 
 
-        <div class="desk03">
+
+
+        <div class="crayons">
+<!--            <img src="coverage/crayonbox.png" class="crayonbox">-->
 
             <ul class="crayonlist">
                 <li class="crayon" name="#fee902"><img src="coverage/k01.png"></li>
@@ -79,30 +112,12 @@
                 <li class="crayon" name="#6f4a41"><img src="coverage/k20.png"></li>
                 <li class="crayon" name="#a55f3d"><img src="coverage/k21.png"></li>
             </ul>
-
-             
-
-        </div>
-
-
-        <br>
-        <div class="desk04">
-            <img src="coverage/pen.png" id="pen">
-            <img src="coverage/bulb.png" id="bulb">
-            <img src="coverage/trash.png" id="trash">
-        <a href="#" class="button" id="btn-download" download="my-file-name.png">Download Image</a>
             
-
         </div>
-
-
-
-
+        <img src="coverage/sketchbook1.png" id="sketchbook">
 
 
     </div>
-
-
 
     <script src="app.js"></script>
 </body></html>
