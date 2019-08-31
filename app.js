@@ -47,7 +47,7 @@ window.addEventListener("load", () => {
         crayonStyle = true;
         erazerStyle = false;
         penStyle = false;
-        canvas.style.cursor = "url(/coverage/cursor-crayon.png), auto";
+        canvas.style.cursor = "url(coverage/cursor-crayon.png), auto";
         console.log("crayontool");
         var li = e.target.closest('li');
         pickedColor = li.getAttribute('name');
@@ -68,7 +68,7 @@ window.addEventListener("load", () => {
         erazerStyle = true;
         crayonStyle = false;
         penStyle = false;
-        canvas.style.cursor = "url(/coverage/cursor-erazer.png), auto";
+        canvas.style.cursor = "url(coverage/cursor-erazer.png), auto";
     };
 
     // pencil
@@ -79,7 +79,7 @@ window.addEventListener("load", () => {
         penStyle = true;
         erazerStyle = false;
         crayonStyle = false;
-        canvas.style.cursor = "url(/coverage/cursor-pen.png ), auto";
+        canvas.style.cursor = "url(coverage/cursor-pen.png ), auto";
     };
 
     var dots = document.querySelector(".dots");

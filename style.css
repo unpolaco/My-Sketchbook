@@ -199,7 +199,7 @@ margin-right: 40px;
  #canvas {
      background-color: #f0efef;
      box-shadow: -4px 4px 4px grey;
-     cursor: url(/coverage/cursor-crayon.png), auto;
+     cursor: url(coverage/cursor-crayon.png), auto;
  }
 
  #spiral {
