@@ -3,37 +3,32 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>My Sketchbook</title>
+    <title>:: My Sketchbook :: by unpolaco</title>
     <link type="text/css" rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
-
     <div class="container00">
-
         <div class="container_pen">
             <img src="coverage/pen.png" id="pen">
         </div>
 
         <div class="container_sketchbook">
-
-            <div class="rect">
+            <div class="rect_buttons">
                 <div id="clean_image">CLEAN IMAGE</div>
                 <div id="load_image">GET PICTURE</div>
                 <a href="#" class="button" id="save_image" download="my-file-name.png">SAVE IMAGE</a>
             </div>
+
             <div id="sketchbook">
                 <div class=title>
                     <p>My Sketchbook</p>
                 </div>
+
                 <canvas id="canvas"></canvas>
-                <img src="coverage/sketchbook.png" id="spiral">
-
+                <img src="coverage/sketchbook.png" id="sketchbook_spiral">
                 <div class="crayons">
-
-
                     <ul class="crayonlist">
                         <li class="crayon" name="#fee902"><img src="coverage/k01.png"></li>
                         <li class="crayon" name="#fe9d00"><img src="coverage/k02.png"></li>
@@ -57,76 +52,52 @@
                         <li class="crayon" name="#6f4a41"><img src="coverage/k20.png"></li>
                         <li class="crayon" name="#a55f3d"><img src="coverage/k21.png"></li>
                     </ul>
-
                 </div>
-
-
-
             </div>
         </div>
 
         <div class="container_drawing_kit">
-
             <img src="coverage/rubber1.png" id="erazer">
-            <div class=linewidth>
-
-                <p class="dots_text">Choose linewidth</p>
+            <div class=linewidth_container>
+                <p class="choose_linewidth_text">LINEWIDTH</p>
                 <div class=dots>
-
-                    <div class="5" id="dot0">
+                    <div class="dot_item" id="dot0" name="5">
                         <div class="dot_size" id="dot0">5px</div>
                     </div>
-                    <div class="10" id="dot1">
+                    <div class="dot_item" id="dot1" name="10">
                         <div class="dot_size" id="dot1">10px</div>
                     </div>
-                    <div class="15" id="dot2">
+                    <div class="dot_item" id="dot2" name="15">
                         <div class="dot_size" id="dot2">15px</div>
                     </div>
-                    <div class="20" id="dot3">
+                    <div class="dot_item" id="dot3" name="20">
                         <div class="dot_size" id="dot3">20px</div>
                     </div>
-                    <div class="25" id="dot4">
+                    <div class="dot_item" id="dot4" name="25">
                         <div class="dot_size" id="dot4">25px</div>
                     </div>
-                    <div class="30" id="dot5">
+                    <div class="dot_item" id="dot5" name="30">
                         <div class="dot_size" id="dot5">30px</div>
                     </div>
-                    <div class="35" id="dot6">
+                    <div class="dot_item" id="dot6" name="35">
                         <div class="dot_size" id="dot6">35px</div>
                     </div>
                 </div>
-                <!--
-                   <div class=dot_size>
-
-                    <div class="dot_size" id="dot0">5px</div>
-                    <div class="dot_size" id="dot1">10px</div>
-                    <div class="dot_size" id="dot2">15px</div>
-                    <div class="dot_size" id="dot3">20px</div>
-                    <div class="dot_size" id="dot4">25px</div>
-                    <div class="dot_size" id="dot5">30px</div>
-                    <div class="dot_size" id="dot6">35px</div>
-                </div>             
--->
-
             </div>
 
-            <div class="t">
-                <p class="transparency_text">Choose transparency</p>
+            <div class="transparency_container">
+                <p class="transparency_text">OPACITY</p>
                 <div class="transparency">
                     <form>
-                        <input type="range" class="opacity_range" min="0" max="1" step="0.1">
+                        <input type="range" class="opacity_range" min="0" max="1" step="0.1" value="1">
                     </form>
-                    <div id="1" class="opacity">100%</div>
-                    <div id="0.5" class="opacity">50%</div>
-                    <div id="0.2" class="opacity">20%</div>
-
+                    <div class="opacity_text_legend">
+                        <div class="opacity">100%</div>
+                        <div class="opacity">0%</div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-
-
     </div>
 
     <script src="app.js"></script>
