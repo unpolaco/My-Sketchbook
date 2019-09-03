@@ -3,9 +3,12 @@ window.addEventListener("load", () => {
     var ctx = canvas.getContext("2d");
     var pickedColor;
     var setLineWidth;
+    var dotActive;
+    var opacity;
+    let set_opacity;
 
-    canvas.height = 400;
-    canvas.width = 600;
+    canvas.height = 600;
+    canvas.width = 800;
 
     var drawing = false;
     var erazerStyle = false;
@@ -16,17 +19,22 @@ window.addEventListener("load", () => {
 
     function setStyle() {
         if (erazerStyle) {
-            ctx.strokeStyle = "#f0efef";
+            ctx.strokeStyle = "#f4f4f4";
             ctx.lineWidth = setLineWidth;
+            ctx.globalAlpha = 1;
+
         } else if (crayonStyle) {
             ctx.strokeStyle = pickedColor;
             ctx.lineWidth = setLineWidth;
+            ctx.globalAlpha = 1;
         } else if (penStyle) {
             ctx.strokeStyle = "#000000";
             ctx.lineWidth = 1;
+            ctx.globalAlpha = 1;
         } else {
             ctx.strokeStyle = "#ffff03";
             ctx.lineWidth = 5;
+            ctx.globalAlpha = 1;
         }
     };
 
@@ -84,8 +92,32 @@ window.addEventListener("load", () => {
 
     var dots = document.querySelector(".dots");
     dots.addEventListener("click", function (e) {
+        var allDots = document.querySelectorAll(".dots > *");
+        for (i = 0; i < allDots.length; i++) {
+            allDots[i].classList.remove("dot_active");
+        };
+
+        dotActive = e.target;
+
         setLineWidth = e.target.className;
+        dotActive.classList.add("dot_active");
     });
+
+    var opacity_btn = document.querySelector(".opacity_range");
+    opacity_btn.addEventListener("change", function (e) {
+        //        var allDots = document.querySelectorAll(".dots > *");
+        //        for (i = 0; i < allDots.length; i++) {
+        //            allDots[i].classList.remove("dot_active");
+        //        };
+
+        opacity = document.getElementById("opacity_btn").value;
+
+        //        set_opacity = opacity.target.getAttribute('id');
+        console.log(opacity);
+    });
+
+
+
 
     // load image to colorize
     var loadImage = document.querySelector("#load_image");
@@ -97,9 +129,10 @@ window.addEventListener("load", () => {
 
         base_image.src = 'img/img' + randomImage + '.png';
         base_image.onload = function () {
-            ctx.clearRect(0, 0, 600, 400);
-            ctx.drawImage(base_image, 0, 0, 600, 400);
-//            ctx.globalAlpha = 1;
+            ctx.clearRect(0, 0, 800, 600);
+            ctx.drawImage(base_image, 0, 0, 800, 600);
+            ctx.globalAlpha = 1;
+
         }
     }
 
@@ -117,31 +150,30 @@ window.addEventListener("load", () => {
     clean.addEventListener("click", resetAll);
 
     function resetAll() {
-        ctx.clearRect(0, 0, 600, 400);
+        ctx.clearRect(0, 0, 800, 600);
     };
 
-function getMousePos(canvas, e) {
-    var rect = canvas.getBoundingClientRect();
-    return {
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top
-    };
-}
+    function getMousePos(canvas, e) {
+        var rect = canvas.getBoundingClientRect();
+        return {
+            x: e.clientX - rect.left,
+            y: e.clientY - rect.top
+        };
+    }
 
     function draw(e) {
         if (!drawing) return;
-        //        var mouseX = e.pageX - this.offsetLeft;
-        //        var mouseY = e.pageY - this.offsetTop;
-var pos =getMousePos(canvas, e);
-        
+
+        var pos = getMousePos(canvas, e);
+
         ctx.lineCap = "round";
-        ctx.lineTo(pos.x, pos.y + 25);
-        //        ctx.lineTo(mouseX, mouseY + 23);
+        ctx.lineTo(pos.x, pos.y + 30);
+        ctx.globalAlpha = 1;
 
         ctx.stroke();
         ctx.beginPath();
-        ctx.moveTo(pos.x, pos.y + 25);
-        //        ctx.moveTo(mouseX, mouseY + 23);
+        ctx.moveTo(pos.x, pos.y + 30);
+
 
 
 
