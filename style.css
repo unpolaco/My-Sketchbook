@@ -19,7 +19,6 @@
      display: flex;
  }
 
-
  .container_pen {
      display: flex;
      align-items: flex-end;
@@ -28,7 +27,6 @@
      height: 90vh;
      width: 5vw;
      min-width: 100px;
-     /*     border: 1px solid;*/
 
  }
 
@@ -66,7 +64,6 @@
      height: 450px;
  }
 
-
  #sketchbook {
      position: relative;
  }
@@ -75,11 +72,10 @@
  .transparency_text,
  opacity {
      font-size: 20px;
-     font-family: 'Lato', cursive;
+     font-family: 'Lato', sans-serif;
      cursor: default;
      color: #4a4a4a;
  }
-
 
  .dots,
  .dot_size,
@@ -94,7 +90,6 @@
      cursor: default;
  }
 
-
  .dots > div {
      background: orange;
      border-radius: 50%;
@@ -102,7 +97,7 @@
  }
 
  .transparency > * {
-     font-family: 'Lato', cursive;
+     font-family: 'Lato', sans-serif;
      color: #4a4a4a;
      display: flex;
  }
@@ -175,7 +170,7 @@
      position: absolute;
      left: 40px;
      top: 0px;
-     font-family: 'Lato', cursive;
+     font-family: 'Lato', sans-serif;
          color: #4a4a4a;
  }
 
